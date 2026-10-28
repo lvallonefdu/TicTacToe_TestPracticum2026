@@ -12,7 +12,7 @@ namespace {  //  Anonymous namespace - ensures the helper functions & the output
     void someoneWins(TicTacToeUI console, TicTacToeBoard& board);
     void itsaDraw(TicTacToeUI console, TicTacToeBoard& board);
 
-    constexpr const char* GAME_VERSION = "Version: 2025 v1.1\n";
+    constexpr const char* GAME_VERSION = "Version: 2026 v1.0\n";
 
     // User Messages - format intended for sprintf_s
     //   constexpr = compile time constant, no dynamic memory, no risk of overflow & works with printf() & sprintf()
