@@ -108,7 +108,7 @@ int main()
 
             if (board.isWinner(board.getPlayer())) {  // a win?
                 someoneWins(console, board);
-                board.nextPlayer();                // player who lost gets to go first
+                // board.nextPlayer();                // player who lost gets to go first, bug
             }
             else if (board.isDraw()) {  // a draw?
                 itsaDraw(console, board);
