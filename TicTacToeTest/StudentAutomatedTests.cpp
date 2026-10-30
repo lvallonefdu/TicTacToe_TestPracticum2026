@@ -44,5 +44,39 @@ namespace TicTacToeTest
 			Logger::WriteMessage("Running student tests on the Board object");
 			Assert::IsTrue(true);
 		}
+
+		TEST_METHOD(NEXTPLAYER) {
+			char prevname = board.getPlayerName();
+			board.nextPlayer();
+
+			switch (prevname) {
+			case ('X'):
+				Assert::AreEqual(board.getPlayerName(), 'O',L"Expected player to be switched to 'O'");
+				Assert::AreNotEqual(board.getPlayerName(), 'X', L"Expected player to be switched to 'X'");
+				break;
+			case ('O'):
+				Assert::AreEqual(board.getPlayerName(), 'X', L"Expected player to be switched to 'X'");
+				Assert::AreNotEqual(board.getPlayerName(), 'O', L"Expected player to be switched to 'O'");
+				break;
+			}
+		 }
+		/*
+		TEST_METHOD(GETTING_PLAYER_NAME) {
+			TicTacToeBoard::Player player = board.getPlayer();
+			char playername = board.getPlayerName();
+			Assert::AreEqual(playername,board.pla)
+		}*/
+		TEST_METHOD(WRITING_GETTING_SQUARES) {
+			for (int i = 0; i< board.BOARD_NUM_ROWS ; i++) {
+				for (int j = 0; j < board.BOARD_NUM_COLS; j++) {
+					bool wroteToSquare = board.writeSquare(i, j, board.getPlayer());
+					bool isEmpty = board.isSquareEmpty(i, j);
+					char currentSquare = board.getSquareContents(i, j);
+					Assert::AreEqual(currentSquare, board.getPlayerName(), L"Expected written value to be returned by getSquareContents");
+					Assert::AreNotEqual(wroteToSquare, isEmpty, L"Expected square to not return as Empty after writing to it");
+				}
+			}
+			
+		}
 	};
 }
