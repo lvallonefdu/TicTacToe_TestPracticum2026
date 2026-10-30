@@ -16,7 +16,7 @@ namespace {  //  Anonymous namespace - ensures the helper functions & the output
 
     // User Messages - format intended for sprintf_s
     //   constexpr = compile time constant, no dynamic memory, no risk of overflow & works with printf() & sprintf()
-    constexpr const char* INTRO_MESSAGE = "Welcome to Tic Tac Toe, class of Fall 2025!\n";
+    constexpr const char* INTRO_MESSAGE = "Welcome to Tic Tac Toe, class of Fall 2026!\n";
     constexpr const char* ENTER_MOVE = "Player %c to play, please enter two digits, row[0 - 2] & column[0 - 2] or q to exit: ";
     constexpr const char* SHOW_MOVE = "You entered ... Row: %u\tColumn: %u\n";
 
@@ -108,7 +108,7 @@ int main()
 
             if (board.isWinner(board.getPlayer())) {  // a win?
                 someoneWins(console, board);
-                board.nextPlayer();                // player who lost gets to go first
+                // board.nextPlayer();                // player who lost gets to go first, bug
             }
             else if (board.isDraw()) {  // a draw?
                 itsaDraw(console, board);
