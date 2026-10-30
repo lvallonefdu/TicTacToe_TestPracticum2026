@@ -129,6 +129,7 @@ namespace TicTacToeTest
 			catch (const std::invalid_argument& ex) { Logger::WriteMessage(ex.what()); }
 			catch (...) { Assert::Fail(L"Unexpected exception type thrown"); }
 		}
+		
 	}; 
 }
 
