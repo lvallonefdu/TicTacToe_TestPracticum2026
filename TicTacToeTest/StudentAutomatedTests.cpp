@@ -45,6 +45,8 @@ namespace TicTacToeTest
 			Assert::IsTrue(true);
 		}
 
+
+
 		TEST_METHOD(NEXTPLAYER) {
 			char prevname = board.getPlayerName();
 			board.nextPlayer();
@@ -60,12 +62,6 @@ namespace TicTacToeTest
 				break;
 			}
 		 }
-		/*
-		TEST_METHOD(GETTING_PLAYER_NAME) {
-			TicTacToeBoard::Player player = board.getPlayer();
-			char playername = board.getPlayerName();
-			Assert::AreEqual(playername,board.pla)
-		}*/
 		TEST_METHOD(WRITING_GETTING_SQUARES) {
 			for (int i = 0; i< board.BOARD_NUM_ROWS ; i++) {
 				for (int j = 0; j < board.BOARD_NUM_COLS; j++) {
