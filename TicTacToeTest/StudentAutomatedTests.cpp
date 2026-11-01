@@ -45,15 +45,24 @@ namespace TicTacToeTest
 			Assert::IsTrue(true);
 		}
 
+		// Verifies that X is reported as the winner after completing the top row.
 		TEST_METHOD(TestWinCase) {
+			// X takes the entire top row.
 			board.writeSquare(0, 0, TicTacToeBoard::X);
 			board.writeSquare(0, 1, TicTacToeBoard::X);
 			board.writeSquare(0, 2, TicTacToeBoard::X);
 
+			// Three in a row should make X the winner.
 			Assert::IsTrue(board.isWinner(TicTacToeBoard::X));
 		}
 
+// Verifies that a full board with no three-in-a-row is recognized as a draw.
+   // Final board:
+   //   O | X | O
+   //   X | O | X
+   //   X | O | X
 		TEST_METHOD(TestDrawCase) {
+			// Fill every square so that no row, column, or diagonal matches.
 			board.writeSquare(0, 0, TicTacToeBoard::O);
 			board.writeSquare(0, 1, TicTacToeBoard::X);
 			board.writeSquare(0, 2, TicTacToeBoard::O);
@@ -63,14 +72,20 @@ namespace TicTacToeTest
 			board.writeSquare(2, 0, TicTacToeBoard::X);
 			board.writeSquare(2, 1, TicTacToeBoard::O);
 			board.writeSquare(2, 2, TicTacToeBoard::X);
+
+			// A full board with no winner should be reported as a draw.
 			Assert::IsTrue(board.isDraw(),L"Expected a draw but the board is not recognized as a draw");
+
 		}
 
+		// Verifies that O is not reported as the winner when X completes the top row.
 		TEST_METHOD(TestLooseCase) {
+			// X takes the entire top row.
 			board.writeSquare(0, 0, TicTacToeBoard::X);
 			board.writeSquare(0, 1, TicTacToeBoard::X);
 			board.writeSquare(0, 2, TicTacToeBoard::X);
 
+			// O should lose, since X has three in a row.
 			Assert::IsFalse(board.isWinner(TicTacToeBoard::O));
 		}
 		
